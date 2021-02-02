@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 html,
 body {
   font-family: "Open Sans", sans-serif;
@@ -5,7 +11,47 @@ body {
   line-height: 1.3em;
 }
 
+.appRoot {
+  padding-top: 35px;
+}
+
 .calendarBar {
   display: flex;
   justify-content: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+table {
+  margin: 0 auto;
+}
+
+.head-row {
+  display: flex;
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    min-height: 65px;
+    border: 1px solid #d7d7d7;
+    
+    &--weekends {
+      background: #f0f0f0;
+    }
+  }
+
+  &__day {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__num {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+  }
 }
