@@ -9,15 +9,16 @@ const renderCalendar = ({ appElement, currentDate }) => {
   const headRow = document.createElement("tr");
   calendarHead.prepend(headRow);
   headRow.classList.add("head-row");
-  
+
   let year = currentDate.getFullYear();
   let month = currentDate.getMonth();
+  let date = new Date(year, month);
   let firstDay = new Date(year, month, 1);
   let lastDay = new Date(year, month + 1, 0);
 
   for (let i = firstDay.getDate(); i <= lastDay.getDate(); i++) {
-    let dayOfWeek = currentDate.toLocaleDateString("en-GB", { weekday: "short" }).slice(0, 2);
-    
+
+    let dayOfWeek = date.toLocaleDateString("en-GB", { weekday: "short" }).slice(0, 2);
     if (dayOfWeek === "Sa") {
       dayOfWeek = "St";
     }
@@ -28,10 +29,12 @@ const renderCalendar = ({ appElement, currentDate }) => {
         <span class='head-row__day'>${dayOfWeek}</span> <span class='head-row__num'>${i}</span>
       </th>`,
     );
+    
     if (dayOfWeek === "St" || dayOfWeek === "Su") {
       headRow.lastChild.classList.add("head-row__cell--weekends");
     }
-    currentDate.setDate(currentDate.getDay() + 1);
+
+    date.setDate(date.getDate() + 1);
   }
 };
 

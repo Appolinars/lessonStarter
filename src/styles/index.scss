@@ -19,7 +19,9 @@ body {
   display: flex;
   justify-content: center;
   font-size: 30px;
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
+  width: 290px;
+  position: relative;
 }
 
 table {
@@ -37,7 +39,7 @@ table {
     width: 35px;
     min-height: 65px;
     border: 1px solid #d7d7d7;
-    
+
     &--weekends {
       background: #f0f0f0;
     }
@@ -53,5 +55,30 @@ table {
     font-weight: 600;
     font-size: 14px;
     line-height: 150%;
+  }
+}
+
+.toolbar-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  position: absolute;
+
+  &__next {
+    right: 0;
+
+    &::before {
+      content: url(../images/next.svg);
+    }
+  }
+
+  &__prev {
+    left: 0;
+
+    &::before {
+      content: url(../images/prev.svg);
+    }
   }
 }
